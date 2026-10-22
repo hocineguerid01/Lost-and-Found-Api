@@ -32,11 +32,12 @@ A RESTful API for managing lost and found items. Users can report lost objects, 
 lost-and-found-api/
 ├── postman/
 ├── src/
+├── schema.sql
 ├── .env.example
 ├── .gitignore
 ├── package.json
 ├── package-lock.json
-└── README.md
+└── README.mdgit status
 ```
 
 ## Installation
