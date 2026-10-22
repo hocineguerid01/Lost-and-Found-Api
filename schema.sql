@@ -1,0 +1,23 @@
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS items (
+    id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    title VARCHAR(150) NOT NULL,
+    description TEXT,
+    type VARCHAR(10) NOT NULL
+        CHECK (type IN ('lost', 'found')),
+    category VARCHAR(80),
+    location VARCHAR(200) NOT NULL,
+    item_date DATE,
+    status VARCHAR(20) NOT NULL DEFAULT 'active'
+        CHECK (status IN ('active', 'recovered')),
+    user_id INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
